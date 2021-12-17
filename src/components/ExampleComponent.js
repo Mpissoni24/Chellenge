@@ -4,6 +4,8 @@ import Chess from "~/helpers/chess";
 
 export const ExampleComponent = (props) => {
   const [reactBoard, setReactBoard] = React.useState(Chess.board);
+  const [solution, setSolution] = React.useState("move")
+
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -22,9 +24,24 @@ export const ExampleComponent = (props) => {
     }
   };
 
+  const handleSolution = (e) => {
+    e.preventDefault()
+    if(solution === "move"){
+      setSolution("none")
+    }else{
+      setSolution("move")
+    }
+  }
+
   return (
     <div /* onClick={handleMove} */ className="ExampleComponent">
-      {reactBoard.map((row, ri) => {
+      <div className="title">
+      <img className="horseIcon" src="images/imgbin_chess-piece-knight-bishop-rook-png.png" />
+      <h1>Chess Master</h1>
+      <button onClick={handleSolution}> {solution === "move"?"Remove Solutions":"Enable Solutions"} </button>
+      </div>
+      <div>
+        {reactBoard.map((row, ri) => {
         return (
           <div className="row">
             {row.map((rColumn, ci) => {
@@ -39,7 +56,7 @@ export const ExampleComponent = (props) => {
                   <div
                     id={`${ri},${ci}`}
                     onClick={handleMoveChess}
-                    className="rColumn move"
+                    className={`rColumn ${solution}`}
                   ></div>
                 );
               }
@@ -48,6 +65,8 @@ export const ExampleComponent = (props) => {
           </div>
         );
       })}
+      </div>
+      
     </div>
   );
 };

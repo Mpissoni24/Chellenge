@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ExampleContainer from '~/containers/ExampleContainer';
 import history from '~/history';
+import png from '../img/pexels-cottonbro-4973821.jpg';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class App extends React.Component {
     const { location } = this.props;
     return (
       <div className="brandHolder">
+        <img className="img" src={png} alt="ajedrez" />
         <Router history={history}>
           <Switch>
             <Route exact path="/" location={location} component={ExampleContainer} />

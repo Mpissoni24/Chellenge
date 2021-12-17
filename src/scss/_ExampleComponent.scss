@@ -1,31 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap');
+@keyframes myAnim {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
 .ExampleComponent {
   margin: calc(100vh / 18);
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: normal;
+
+  
+  
+  
+  .title{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    h1{
+      z-index: 1;
+      font-family: 'Mukta', sans-serif;
+      text-align: center;
+      margin: auto;
+      font-weight: bolder;
+      font-size:3em;
+      color: #752e12;
+      text-shadow: 5px 5px 10px #000000;
+    }
+    .horseIcon{
+      margin: auto;
+      width: 5em;
+      
+    }
+    button{
+      background-color: #752e12;
+      border: none;
+      font-family: 'Mukta', sans-serif;
+      font-weight: bold;
+      height: 2em;
+      color: antiquewhite;
+
+      &:hover{
+        background-color: #9c7160;
+        color: #752e12;
+      }
+
+    }
+  }
+
+  
   .move{
     animation: myAnim 2s ease 0s infinite normal forwards;
+    cursor: pointer;
   }
-  @keyframes myAnim {
-    0%,
-    50%,
-    100% {
-      opacity: 1;
-    }
   
-    25%,
-    75% {
-      opacity: 0;
-    }
-  }
   .row {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: auto;
+    margin:0;
     &:nth-child(2n+1){
       .rColumn {
         width: calc(100vh / 9);
         height: calc(100vh / 9);
         background-color: rgb(238, 175, 144);
-        border:1px solid grey;
+        border:1px solid rgb(0, 0, 0);
+        box-shadow: -5px -3px 12px 1px #000 inset;
         position: relative;
         &:nth-child(2n+2){
           background-color: rgb(73, 38, 21);
@@ -37,7 +89,7 @@
         }
         @media only screen and (max-width: 576px){
           width: 10%;
-          height: 5em;
+          height: 3em;
         }
       }
     }
@@ -46,19 +98,26 @@
         width: calc(100vh / 9);
         height: calc(100vh / 9);
         background-color: rgb(238, 175, 144);
-        border:1px solid grey;
+        border:1px solid rgb(0, 0, 0);
+        box-shadow: -5px -3px 12px 1px #000 inset;
         position: relative;
         &:nth-child(2n+1){
           background-color: rgb(73, 38, 21);
         }
         img {
           width: 100%;
+          height:100%;
+          background-color: transparent;
         }
         @media only screen and (max-width: 576px){
           width: 10%;
-          height: 5em;
+          height: 3em;
         }
       }
     }
+  }
+  @media only screen and (max-width: 576px){
+    height: 88vh;
+    flex-direction: column;
   }
 }

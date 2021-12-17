@@ -13,6 +13,8 @@ export const ExampleComponent = (props) => {
     }, 200);
   }, []);
 
+  /* Logica para el movimiento del caballo */
+  /* handleMove se utiliza para modificar el arreglo */
   const handleMoveChess = (e) => {
     if (e.target.id) {
       const index = e.target.id.split(",");
@@ -24,6 +26,7 @@ export const ExampleComponent = (props) => {
     }
   };
 
+  /* Quitar o habilitar posibles movimientos */
   const handleSolution = (e) => {
     e.preventDefault()
     if(solution === "move"){

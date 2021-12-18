@@ -43,7 +43,7 @@ export const ExampleComponent = (props) => {
       <h1>Chess Master</h1>
       <button onClick={handleSolution}> {solution === "move"?"Remove Solutions":"Enable Solutions"} </button>
       </div>
-      <div>
+      <div className="contentRow">
         {reactBoard.map((row, ri) => {
         return (
           <div className="row">
